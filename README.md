@@ -1,4 +1,4 @@
-# About Project Axolotl
+# Project Axolotl
 
 Next-generation communication ecosystem powered by decentralized nodes.
 
