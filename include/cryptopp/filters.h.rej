@@ -1,0 +1,10 @@
+--- filters.h	(revision 541)
++++ filters.h	(working copy)
+@@ -10,6 +10,7 @@
+ #include "queue.h"
+ #include "algparam.h"
+ #include <deque>
++#include <limits>
+ 
+ NAMESPACE_BEGIN(CryptoPP)
+ 

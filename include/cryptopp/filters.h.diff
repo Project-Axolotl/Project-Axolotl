@@ -1,0 +1,37 @@
+Index: filters.h
+===================================================================
+--- filters.h	(revision 541)
++++ filters.h	(working copy)
+@@ -10,6 +10,7 @@
+ #include "queue.h"
+ #include "algparam.h"
+ #include <deque>
++#include <limits>
+ 
+ NAMESPACE_BEGIN(CryptoPP)
+ 
+@@ -805,6 +806,24 @@
+ 		{SourceInitialize(pumpAll, MakeParameters("RandomNumberGeneratorPointer", &rng)("RandomNumberStoreSize", length));}
+ };
+ 
++class CRYPTOPP_DLL SecByteBlockSink : public Bufferless<Sink>
++{
++public:
++	SecByteBlockSink(SecByteBlock& sbb) : m_sbb(sbb) { }
++
++	size_t Put2(const byte *inString, size_t length, int /*messageEnd*/, bool /*blocking*/)
++	{
++		if(!inString || !length) return length;
++        
++        m_sbb += SecByteBlock (inString, length);
++		
++		return 0;
++	}
++
++private:
++	SecByteBlock& m_sbb;
++};
++
+ NAMESPACE_END
+ 
+ #endif

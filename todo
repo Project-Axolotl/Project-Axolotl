@@ -1,0 +1,3 @@
+anytime:
+	revise endpoint::onNodeConnect's purpose
+	refactor variable names, they suck
